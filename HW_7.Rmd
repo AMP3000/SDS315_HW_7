@@ -5,7 +5,7 @@ date: "2025-04-05"
 output: pdf_document
 ---
 
-{r echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, setup, include=FALSE}
+```{r echo=FALSE, warning=FALSE, message=FALSE, error=FALSE, setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
 library(ggplot2)
@@ -14,12 +14,15 @@ library(tibble)
 library(knitr)
 library(mosaic)
 library(MatchIt)
+```
 
 Advait Phadke, UT EID: amp7984
 
-Github Repo: https://github.com/AMP3000/SDS315_HW_7
+Github Repo: <https://github.com/AMP3000/SDS315_HW_7>
 
-Problem 1: Armfolding
+## Problem 1: Armfolding
+
+A.  
 
 In this dataset, there are:
 
@@ -29,13 +32,16 @@ In this dataset, there are:
 
 47.17% of the males in this dataset folded their arms with the left on top, while 42.34% of the females folded their arms with their left arm on top.
 
+B.  
+
 The observed difference in proportions between the two groups is 4.827%.
 
-C.theta +- z*se(p1-p2)
+C.\
+theta +- z\*se(p1-p2)
 
 theta = observed difference in proportions (0.04827)
 
-z* = 1.96 (because 95% confidence interval, 1.96 standard deviations each way leave 95% of the area in the middle)
+z\* = 1.96 (because 95% confidence interval, 1.96 standard deviations each way leave 95% of the area in the middle)
 
 se(p1-p2) = sqrt( p1(1-p1)/n1 + p2(1-p2)/n2 )
 
@@ -49,19 +55,31 @@ n2 = number of females in sample (111)
 
 Confidence Interval: (-0.093, 0.1897)
 
+D.  
+
 If we were to do this process a huge number of times and take random samples from all the students at the Australian University and similarly construct a 95% confidence interval for the true difference in proportion of male left-arm-on-top folders and female left-arm-on-top folders each time, then 95% of those confidence intervals will contain the true difference in the two proportions.
+
+E.  
 
 The standard error (0.067) represents the standard deviation of the sampling distribution model, the model that shows the distribution of the difference in proportions of hypothetically unlimited such procedures where we randomly get 106 males and 111 females and ask them to fold their arms and see the difference in proportions of people who fold with their left arm on top.
 
+F.  
+
 Sampling distribution is the model that shows what the distribution of the difference of sample proportions of hypothetically unlimited of these procedures would look like. The proportion of males and females who put their left arm on top is slightly different from sample to sample, everything else stays the same including the sample size, etc.
+
+G.  
 
 The Central Limit Theorum says that when we take samples that are sufficiently large enough from any sort of population, despite its distribution, then the sampling distribution model will be normal in shape. So, this allows us to use a normal model to approximate the SDM in this case.
 
+H.  
+
 I wouldn't say that because even though 0 is in the interval, it is right on the edge. Perhaps with a different sample, it could be outside the confidence interval. So, I wouldn't say that there is no difference, but I wouldn't confidently march in saying that there is a clear difference either.
+
+I.  
 
 The confidence interval would be different across all samples, because the proportion of left arm folders will be slightly different each time due to random variation. But, for the collection of all of those intervals, 95% of them should contain the true difference in proportions.
 
-{r}
+```{r}
 
 df <- read.csv("armfold.csv")
 
@@ -101,8 +119,11 @@ print (right)
 
 prop.test(LonR_fold ~ Sex, data = df, success = 0)
 
+```
 
-Problem 2: Get Out the Vote
+## Problem 2: Get Out the Vote
+
+A.  
 
 64.77% of people who got a GOTV call voted in 1998.
 
@@ -112,17 +133,19 @@ I am 95% confident that the true difference in proportions between GOTV call rec
 
 B. The histograms show how the distribution of age for GOTV call receivers and non receivers are very different. The non call receivers' distribution is skewed to the right, while the call receivers' distribution is skewed to the left. The confidence interval of the difference of mean age between the call getters and non call getters is between 6.37 and 11.39, with 0 not in the interval showing that there is a systematic difference of age between the two groups. The next histogram shows how the distribution of ages between 1998 voters and non voters is also quite different, with the distribution of the non voters skewed to the right and the distribution of voters bimodal without skew. The table afterwards show how the percentage of people who are registered with a major political party varies between people who got the call and didn't. The 95% confidence interval for the difference in proportions of political party registered call receivers and non receivers is between 0.004 and 0.109. The table afterwards shows the big difference in called percentage for people who voted in 1996 and didn't. The 95% confidence interval of the difference of proportions between call receivers and non call receivers who voted in 1996 is between 0.122 and 0.24, with 0 not even being close to the interval. The table afterwards shows the massive difference in percentage of people who voted in 1998 after voting in 1996 and the percentage of people who voted in 1998 after not voting in 1996. Finally, the large sample confidence interval at the end shows that the true difference in proportions between 1998 voters who voted in 1996 and didn't is between 39.32% and 42.75%.
 
-After matching, we can see that the matched data set is balanced compared to its unmatched counterpart. The percentage/means of all the three confounding variables are very similar in the call receivers and non receivers in the matched data set. In the three confidence intervals for the true difference between the GOTV call receivers and non receivers in regards to those three confounders, 0 is right in the middle of them, serving as extra evidence to show that the data is now balanced.
+C.  
 
-64.77% of people who received a GOTV call voted in 1998.
+After matching, we can see that the matched data set is balanced compared to its unmatched counterpart. The percentage/means of all the three confounding variables are very similar in the call receivers and non receivers in the matched data set. In the three confidence intervals for the true difference between the GOTV call receivers and non receivers in regards to those three confounders, 0 is right in the middle of them, serving as extra evidence to show that the data is now balanced. The confidence interval is (-0.06, 0.06) for difference in proportions between 1996 voters between call receivers and non receivers. Similarly for political party registration it is (-0.05, 0.06). For difference in means in age amongst the two groups, it is (-2.76, 2.67).
 
-56.92% of people who did not receive a GOTV call voted in 1998.
+-   64.77% of people who received a GOTV call voted in 1998.
 
-We are 95% confident that the true difference in proportions of 1998 voting between GOTV call receivers and non receivers is between -1.045% and -14.66% (that much percent more people voted in 1998 in the GOTV call receivers group vs non receivers group).
+-   56.92% of people who did not receive a GOTV call voted in 1998.
+
+-   We are 95% confident that the true difference in proportions of 1998 voting between GOTV call receivers and non receivers is between -1.045% and -14.66% (that much percent more people voted in 1998 in the GOTV call receivers group vs non receivers group).
 
 Overall, I conclude that the GOTV call probably had an effect on the voting behavior of people in 1998, although we cannot be too sure. 0 was not in the confidence interval, but it was right outside, so it could still be a plausible value. So, it seems like GOTV calls had an effect, but we would need more rigorous analysis to be able to say in black and white.
 
-{r}
+```{r}
 
 data = read.csv("turnout.csv")
 
@@ -188,9 +211,9 @@ mean(AGE ~ GOTV_call, data= md)
 mean(voted1996 ~ GOTV_call, data= md)
 
 
-#prop.test(voted1996 ~ GOTV_call, data = md, success = 1)
-#prop.test(MAJORPTY ~ GOTV_call, data = md, success = 1)
-#t.test(AGE ~ GOTV_call, data = md, success = 1)
+prop.test(voted1996 ~ GOTV_call, data = md, success = 1)
+prop.test(MAJORPTY ~ GOTV_call, data = md, success = 1)
+t.test(AGE ~ GOTV_call, data = md, success = 1)
 
 
 #Redoing part A analysis on new data. 
@@ -203,4 +226,4 @@ noCallAndVoted = sum(md$voted1998 == 1 & md$GOTV_call == 0) / sum(md$GOTV_call =
 #print (noCallAndVoted)
 
 #prop.test(voted1998 ~ GOTV_call, data = md, success = 1)
-
+```
