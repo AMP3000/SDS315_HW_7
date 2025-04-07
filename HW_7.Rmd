@@ -18,7 +18,7 @@ library(MatchIt)
 
 Advait Phadke, UT EID: amp7984
 
-Github Repo:
+Github Repo: <https://github.com/AMP3000/SDS315_HW_7>
 
 ## Problem 1: Armfolding
 
@@ -36,7 +36,7 @@ B.
 
 The observed difference in proportions between the two groups is 4.827%.
 
-C. \
+C.\
 theta +- z\*se(p1-p2)
 
 theta = observed difference in proportions (0.04827)
@@ -133,7 +133,7 @@ I am 95% confident that the true difference in proportions between GOTV call rec
 
 B. The histograms show how the distribution of age for GOTV call receivers and non receivers have much different distributions. The non call receivers' distribution is skewed to the right, while the call receivers' distribution is skewed to the left. The confidence interval of the difference of mean age between the call getters and non call getters is between 6.37 and 11.39, with 0 not in the interval showing that there is a systematic difference of age between the two groups. The next histogram shows how the distribution of ages between 1998 voters and non voters is also quite different, with the distribution of the non voters skewed to the right and the distribution of voters bimodal without skew. The table afterwards show how the percentage of people who are registered with a major political party varies between people who got the call and didn't. The table afterwards shows the big difference in called percentage for people who voted in 1996 and didn't. The confidence interval of the difference of proportions between call receivers and non call receivers who voted in 1996 is between 0.122 and 0.24, with 0 not even being close to the interval. The table afterwards shows the massive difference in percentage of people who voted in 1998 after voting in 1996 and the percentage of people who voted in 1998 after not voting in 1996. Finally, the large sample confidence interval at the end shows that the true difference in proportions between 1998 voters who voted in 1996 and didn't is between 39.32% and 42.75%.
 
-C.
+C.  
 
 After matching, we can see that the matched data set is balanced compared to its unmatched counterpart. The percentage/means of all the three confounding variables are very similar in the call receivers and non receivers in the matched data set. In the three confidence intervals for the true difference between the GOTV call receivers and non receivers in regards to those three confounders, 0 is right in the middle of them, serving as extra evidence to show that the data is now balanced.
 
